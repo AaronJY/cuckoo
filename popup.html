@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		h1 {
+			font-size: 21px;
+			color: #292f33;
+			margin-bottom: 15px;
+		}
+	
+		#popup {
+			min-width: 200px;
+		}
+	
+		label, #savedChanges span {
+			font-size: 14px;
+		}
+	
+		#popup > div {
+			margin-top: 10px;
+		}
+	
+		.row {
+			margin-top: 10px;
+		}
+	
+		#bottomRow {
+			margin-top: 25px !important;
+		}
+	
+		#saveButton {
+			width: 100%;
+			font-size: 14px;
+			background-color: #55acee;
+			border-radius: 5px;
+			border: none;
+			color: #fff;
+			padding: 10px 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="popup">
+		<h1>Preferences</h1>
+	
+		<div class="row">
+			<label for="hidelikes">Hide likes?</label>
+			<input type="checkbox" name="hidelikes" id="hideLikes">
+		</div>
+		
+	
+		<div class="row">
+			<label for="hidereplies">Hide replies?</label>
+			<input type="checkbox" name="hidereplies" id="hideReplies">
+		</div>
+	
+		<div class="row">
+			<label for="hideretweets">Hide re-tweets?</label>
+			<input type="checkbox" name="hideretweets" id="hideRetweets">
+		</div>
+		
+		<div class="row" id="savedChanges" style="display: none">
+			<span style="color: green">Your changes have been saved. You must refresh your page before they take effect.</span>
+		</div>
+
+		<div class="row">
+			<button type="button" id="saveButton">Save changes</button>
+		</div>
+	</div>
+	<script src="popup.js"></script>
+</body>
+</html>
