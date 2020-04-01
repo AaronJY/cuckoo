@@ -1,0 +1,46 @@
+h1 {
+	font-size: 18px;
+	color: #AAB8C2;
+	margin-bottom: 15px;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+#popup {
+	min-width: 200px;
+}
+
+label, #savedChanges span {
+	font-size: 14px;
+}
+
+.row {
+	margin-top: 10px;
+}
+
+#bottomRow {
+	margin-top: 25px !important;
+}
+
+#saveButton {
+	width: 100%;
+	font-size: 14px;
+	background-color: #1DA1F2;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	padding: 10px 5px;
+}
+
+#banner {
+	background-color: #14171A;
+	padding: 10px 10px;
+}
+
+.container {
+	padding: 10px;
+}
