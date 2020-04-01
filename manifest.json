@@ -1,11 +1,11 @@
 {
 	"name": "Twitter Metric Hider",
 	"description": "Hides twitter like, reply and retweet counts.",
-	"version": "0.1",
+	"version": "1.0.0",
 	"manifest_version": 2,
 	"content_scripts": [
 		{
-			"matches": ["https://twitter.com/*"],
+			"matches": ["http://twitter.com/*", "https://twitter.com/*"],
 			"js": ["hider.js", "content.js"]
 		}
 	],
