@@ -8,16 +8,13 @@ class Background {
 	}
 
 	static async listen() {
-		console.log("LISTENING")
-		
 		const preferences = await this.getSavedPreferences();
 		const hider = new TwitterHider(preferences);
 
 		hider.init();
 	}
 
-	static checkIfFirstStart(callback) {
-		console.log("CHECKING IF FIRST START");
+	static checkIfFirstStart() {
 		return new Promise(resolve => {
 			chrome.storage.local.get('setup', data => {
 				resolve(!data.setup);
@@ -26,8 +23,6 @@ class Background {
 	}
 
 	static setup() {
-		console.log("SETUP");
-
 		const defaults = {
 			hideLikes: true,
 			hideRetweets: true,
