@@ -16,21 +16,21 @@ class TwitterHider {
 	}
 
 	init() {
-		const hideLikes = this.getPreference("hideLikes");
-		const hideRetweets = this.getPreference("hideRetweets");
-		const hideReplies = this.getPreference("hideReplies");
+		if (
+			!this.preferences.hideLikes 
+			&& this.preferences.hideRetweets 
+			&& this.preferences.hideReplies
+		) {
+			return;
+		}
+		
+		setInterval(() => this.run(), 500);
+	}
 
-		const run = () => {
-			if (hideLikes)
-				this.hideLikeCounts();
-			if (hideRetweets)
-				this.hideRetweetCounts();
-			if (hideReplies)
-				this.hideReplyCounts();
-		};
-
-		if (hideLikes || hideRetweets ||  hideReplies)
-			setInterval(() => run(), 500);
+	run() {
+		if (this.preferences.hideLikes)		this.hideLikeCounts();
+		if (this.preferences.hideRetweets) 	this.hideRetweetCounts();
+		if (this.preferences.hideReplies)	this.hideReplyCounts();
 	}
 
 	hideLikeCounts() {
@@ -73,12 +73,6 @@ class TwitterHider {
 
 	markElementAsProcessed(element) {
 		element.setAttribute(this.processedAttribute, true);
-	}
-
-	getPreference(preference) {
-		if (this.preferences[preference] === undefined)
-			throw `preference ${preference} wasn't given in the constructor.`;
-		return this.preferences[preference];
 	}
 
 	findMainTweetCountByLabelText(labelText) {
