@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "typescript": "^3.8.3",
+    "cpx": "1.5.0"
+  },
+  "scripts": {
+    "build": "cpx manifest.json ../build/ && parcel build content.ts hider.ts popup.html hider.css --no-source-maps -d ../build/"
+  },
+  "browserslist": [
+    "last 3 Chrome versions",
+    "Firefox 63",
+    "Node 11"
+  ],
+  "browser": {
+    "process": false
+  }
+}
