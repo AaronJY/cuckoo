@@ -37,48 +37,4 @@ export class TwitterHider {
 	private trueStringOrNull(value: boolean) {
 		return value ? "true" : null;
 	}
-
-	// hideRetweetCounts() {
-	// 	const elements = [
-	// 		...document.querySelectorAll(this.selectors.retweetContainer),
-	// 		...this.findMainTweetCountByLabelText("Retweets")
-	// 	];
-
-	// 	this.omitElements(elements);
-	// }
-
-	// hideReplyCounts() {
-	// 	const elements = document.querySelectorAll(this.selectors.replyContainer);
-	// 	this.omitElements(elements);
-	// }
-
-	// omitElements(elements) {
-	// 	elements.forEach((element) => {
-	// 		this.markElementAsProcessed(element);
-
-	// 		const textElement = element.querySelector(this.selectors.countText);
-
-	// 		if (textElement !== null)
-	// 			this.omitElement(textElement);
-	// 	});
-	// }
-
-	// omitElement(element) {
-	// 	element.innerHTML = "???";
-	// }
-
-	// markElementAsProcessed(element) {
-	// 	element.setAttribute(this.processedAttribute, true);
-	// }
-
-	// findMainTweetCountByLabelText(labelText) {
-	// 	return [...document.querySelectorAll(this.selectors.countText)]
-	// 		.filter(element => element.innerHTML === labelText)
-	// 		.map(element => {
-	// 			const wrappingDiv = element.parentElement.parentElement.parentElement;
-	// 			const countContainer = wrappingDiv.children[0];
-				
-	// 			return countContainer;
-	// 		});
-	// }
 }
