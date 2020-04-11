@@ -1,50 +1,52 @@
-class Popup {
-	static async init() {
-		this.bind();
+import { PreferencesRepository } from './preferences-repository';
+import { Preferences } from './interfaces/preferences';
 
-		const preferences = await this.getPreferences();
+class Popup {
+	private static hideLikesCheckbox: HTMLInputElement;
+	private static hideRepliesCheckbox: HTMLInputElement;
+	private static hideRetweetsCheckbox: HTMLInputElement;
+	private static saveButton: HTMLButtonElement;
+	private static saveChangesMessage: HTMLElement;
+
+	static async init(): Promise<void> {
+		const preferences: Preferences = await PreferencesRepository.get();
+
 		this.hideLikesCheckbox.checked = preferences.hideLikes;
 		this.hideRepliesCheckbox.checked = preferences.hideReplies;
 		this.hideRetweetsCheckbox.checked = preferences.hideRetweets;
+
+		this.bind();
 	}
 
-	static bind() {
-		this.hideLikesCheckbox = document.getElementById("hideLikes");
-		this.hideRepliesCheckbox = document.getElementById("hideReplies");
-		this.hideRetweetsCheckbox = document.getElementById("hideRetweets");
-		this.saveButton = document.getElementById("saveButton");
-		this.saveChangesMessage = document.getElementById("savedChanges");
+	static bind(): void {
+		this.hideLikesCheckbox = document.getElementById('hideLikes') as HTMLInputElement;
+		this.hideRepliesCheckbox = document.getElementById('hideReplies') as HTMLInputElement;
+		this.hideRetweetsCheckbox = document.getElementById('hideRetweets') as HTMLInputElement;
 
-		saveButton.addEventListener("click", async () => {
+		this.saveChangesMessage = document.getElementById('savedChanges');
+
+		this.saveButton = document.getElementById('saveButton') as HTMLButtonElement;
+		this.saveButton.addEventListener('click', async () => {
 			await this.saveChanges();
-			this.saveChangesMessage.style.display = "block";
+			this.saveChangesMessage.style.display = 'block';
 		});
 	}
 
-	static saveChanges() {
+	static async saveChanges(): Promise<void> {
 		return new Promise(resolve => {
-			chrome.storage.local.set({
+			const updatedPreferences: Preferences = {
 				hideLikes: this.hideLikesCheckbox.checked,
 				hideRetweets: this.hideRetweetsCheckbox.checked,
 				hideReplies: this.hideRepliesCheckbox.checked
-			}, () => resolve());
-		});
-	}
+			};
 
-	static getPreferences() {
-		return new Promise(resolve => {
-			chrome.storage.local.get([
-				'hideLikes', 
-				'hideRetweets', 
-				'hideReplies'
-			], data => {
-				resolve(data);
-			});
+			PreferencesRepository.set(updatedPreferences);
+
+			resolve();
 		});
 	}
-	
 }
 
-window.onload = () => {
+window.onload = (): void => {
 	Popup.init();
 };
