@@ -1,5 +1,6 @@
 import { TwitterHider } from './hider';
 import { Preferences } from './interfaces/preferences';
+import { PreferencesRepository } from './preferences-repository';
 
 class Background {
 	static async init(): Promise<void> {
@@ -7,43 +8,18 @@ class Background {
 			await this.setup();
 		}
 
-		this.listen();
-	}
-
-	static async listen(): Promise<void> {
-		const preferences: Preferences = await this.getSavedPreferences();
+		const preferences: Preferences = await PreferencesRepository.get();
 		const hider = new TwitterHider(preferences);
 
 		hider.init();
 	}
 
-	static setup(): Promise<void> {
-		const defaults = {
-			hideLikes: true,
-			hideRetweets: true,
-			hideReplies: true,
-			setup: true
-		};
-
-		return new Promise(resolve => {
-			globalThis.chrome.storage.local.set(defaults, () => resolve());
-		});
+	private static async setup(): Promise<void> {
+		await PreferencesRepository.set(PreferencesRepository.DefaultPreferences);
 	}
 
-	static checkIfFirstStart(): Promise<boolean> {
-		return new Promise(resolve => {
-			globalThis.chrome.storage.local.get('setup', data => {
-				resolve(!data.setup);
-			});
-		});
-	}
-
-	static getSavedPreferences(): Promise<Preferences> {
-		return new Promise(resolve => {
-			globalThis.chrome.storage.local.get(['hideLikes', 'hideReplies', 'hideRetweets'], (data: Preferences) => {
-				resolve(data);
-			});
-		})
+	private static async checkIfFirstStart(): Promise<boolean> {
+		return !(await PreferencesRepository.get());
 	}
 }
 
