@@ -4,7 +4,8 @@ export class PreferencesRepository {
 	static readonly DefaultPreferences: Preferences = {
 		hideLikes: true,
 		hideRetweets: true,
-		hideReplies: true
+		hideReplies: true,
+		hideFollowers: true
 	};
 
 	static get(): Promise<Preferences> {

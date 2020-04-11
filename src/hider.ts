@@ -6,6 +6,7 @@ export class TwitterHider {
 	private readonly hideLikesToggleAttr = 'data-hidelikes';
 	private readonly hideRetweetsToggleAttr = 'data-hideretweets';
 	private readonly HideRepliesToggleAttr = 'data-hidereplies';
+	private readonly HideFollowersToggleAttr = 'data-hidefollowers';
 
 	constructor(preferences: Preferences) {
 		this.preferences = preferences;
@@ -15,6 +16,7 @@ export class TwitterHider {
 		this.setLikesVisibility(this.preferences.hideLikes);
 		this.setRetweetsVisibility(this.preferences.hideRetweets);
 		this.setRepliesVisibility(this.preferences.hideReplies);
+		this.setFollowersVisibility(this.preferences.hideFollowers);
 	}
 
 	private setLikesVisibility(visiblity: boolean): void {
@@ -27,6 +29,10 @@ export class TwitterHider {
 
 	private setRepliesVisibility(visiblity: boolean): void {
 		this.setAttributeOrRemoveIfNull(document.body, this.HideRepliesToggleAttr, this.trueStringOrNull(visiblity));
+	}
+
+	private setFollowersVisibility(visibility: boolean): void {
+		this.setAttributeOrRemoveIfNull(document.body, this.HideFollowersToggleAttr, this.trueStringOrNull(visibility));
 	}
 
 	private setAttributeOrRemoveIfNull(element: HTMLElement, attributeName: string, value: string): void {

@@ -5,6 +5,7 @@ class Popup {
 	private static hideLikesCheckbox: HTMLInputElement;
 	private static hideRepliesCheckbox: HTMLInputElement;
 	private static hideRetweetsCheckbox: HTMLInputElement;
+	private static hideFollowersCheckbox: HTMLInputElement;
 	private static saveButton: HTMLButtonElement;
 	private static saveChangesMessage: HTMLElement;
 
@@ -16,12 +17,14 @@ class Popup {
 		this.hideLikesCheckbox.checked = preferences.hideLikes;
 		this.hideRepliesCheckbox.checked = preferences.hideReplies;
 		this.hideRetweetsCheckbox.checked = preferences.hideRetweets;
+		this.hideFollowersCheckbox.checked = preferences.hideFollowers;
 	}
 
 	static bind(): void {
 		this.hideLikesCheckbox = document.getElementById('hideLikes') as HTMLInputElement;
 		this.hideRepliesCheckbox = document.getElementById('hideReplies') as HTMLInputElement;
 		this.hideRetweetsCheckbox = document.getElementById('hideRetweets') as HTMLInputElement;
+		this.hideFollowersCheckbox = document.getElementById('hideFollowers') as HTMLInputElement;
 
 		this.saveChangesMessage = document.getElementById('savedChanges');
 
@@ -37,7 +40,8 @@ class Popup {
 			const updatedPreferences: Preferences = {
 				hideLikes: this.hideLikesCheckbox.checked,
 				hideRetweets: this.hideRetweetsCheckbox.checked,
-				hideReplies: this.hideRepliesCheckbox.checked
+				hideReplies: this.hideRepliesCheckbox.checked,
+				hideFollowers: this.hideFollowersCheckbox.checked
 			};
 
 			PreferencesRepository.set(updatedPreferences);
