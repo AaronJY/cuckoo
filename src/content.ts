@@ -1,9 +1,8 @@
-import { TwitterHider } from "./hider";
-import { Preferences } from "./interfaces/preferences";
-
+import { TwitterHider } from './hider';
+import { Preferences } from './interfaces/preferences';
 
 class Background {
-	static async init() {
+	static async init(): Promise<void> {
 		if (await this.checkIfFirstStart()) {
 			await this.setup();
 		}
@@ -11,14 +10,14 @@ class Background {
 		this.listen();
 	}
 
-	static async listen() {
+	static async listen(): Promise<void> {
 		const preferences: Preferences = await this.getSavedPreferences();
 		const hider = new TwitterHider(preferences);
 
 		hider.init();
 	}
 
-	static setup() {
+	static setup(): Promise<void> {
 		const defaults = {
 			hideLikes: true,
 			hideRetweets: true,
@@ -47,7 +46,5 @@ class Background {
 		})
 	}
 }
-
-
 
 Background.init();
