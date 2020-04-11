@@ -11,11 +11,11 @@ class Popup {
 	static async init(): Promise<void> {
 		const preferences: Preferences = await PreferencesRepository.get();
 
+		this.bind();
+
 		this.hideLikesCheckbox.checked = preferences.hideLikes;
 		this.hideRepliesCheckbox.checked = preferences.hideReplies;
 		this.hideRetweetsCheckbox.checked = preferences.hideRetweets;
-
-		this.bind();
 	}
 
 	static bind(): void {
