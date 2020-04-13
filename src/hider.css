@@ -27,26 +27,24 @@ body[data-hidelikes]
 body[data-hideretweets]
   div.css-1dbjc4n.r-1ila09b.r-qklmqi.r-1adg3ll
   div.css-1dbjc4n.r-1kfrmmb.r-1efd50x.r-5kkj8d.r-18u37iz.r-9qu9m4
-  a[href$="retweets"]
-  span.css-901oao.css-16my406.r-1qd0xha.r-vw2c0b.r-ad9z0x.r-bcqeeo.r-d3hbe1.r-1wgg2b2.r-axxi2z.r-qvutc0
-  span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
+  a[href$="retweets"] {
   display: none;
 }
 
-body[data-hideretweets]
+body[data-hidelikes]
   div.css-1dbjc4n.r-1ila09b.r-qklmqi.r-1adg3ll
   div.css-1dbjc4n.r-1kfrmmb.r-1efd50x.r-5kkj8d.r-18u37iz.r-9qu9m4
-  a[href$="likes"]
-  span.css-901oao.css-16my406.r-1qd0xha.r-vw2c0b.r-ad9z0x.r-bcqeeo.r-d3hbe1.r-1wgg2b2.r-axxi2z.r-qvutc0
-  span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
+  a[href$="likes"] {
   display: none;
 }
+
+/*
+  Profile (example: https://twitter.com/DeborahMeaden/status/1249679362863124480)
+*/
 
 body[data-hidefollowers]
-  div.css-1dbjc4n.r-1ila09b.r-qklmqi.r-1adg3ll
-  div.css-1dbjc4n.r-1kfrmmb.r-1efd50x.r-5kkj8d.r-18u37iz.r-9qu9m4
+  div.css-1dbjc4n.r-18u37iz
   a[href$="followers"]
-  span.css-901oao.css-16my406.r-1qd0xha.r-vw2c0b.r-ad9z0x.r-bcqeeo.r-d3hbe1.r-1wgg2b2.r-axxi2z.r-qvutc0
   span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
   display: none;
 }
