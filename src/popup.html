@@ -13,22 +13,27 @@
 	
 		<div class="container">
 			<div>
-				<label for="hidelikes">Hide likes?</label>
 				<input type="checkbox" name="hidelikes" id="hideLikes">
+				<label for="hidelikes">Hide likes?</label>
 			</div>
 
 			<div class="row">
-				<label for="hidereplies">Hide replies?</label>
 				<input type="checkbox" name="hidereplies" id="hideReplies">
+				<label for="hidereplies">Hide replies?</label>
 			</div>
 		
 			<div class="row">
-				<label for="hideretweets">Hide re-tweets?</label>
 				<input type="checkbox" name="hideretweets" id="hideRetweets">
+				<label for="hideretweets">Hide re-tweets?</label>
+			</div>
+
+			<div class="row">
+				<input type="checkbox" name="hidefollowers" id="hideFollowers">
+				<label for="hideretweets">Hide follower counts?</label>
 			</div>
 			
 			<div class="row" id="savedChanges" style="display: none">
-				<span style="color: green">Your changes have been saved. You must refresh your page before they take effect.</span>
+				<span>Your changes have been saved. You must refresh your page before they take effect.</span>
 			</div>
 
 			<div class="row">
@@ -36,6 +41,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="popup.js"></script>
+	<script src="popup.ts"></script>
 </body>
 </html>
