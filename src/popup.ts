@@ -1,5 +1,6 @@
 import { PreferencesRepository } from './preferences-repository';
 import { Preferences } from './interfaces/preferences';
+import { TwitterHider } from './hider';
 
 class Popup {
 	private static hideLikesCheckbox: HTMLInputElement;

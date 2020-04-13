@@ -10,7 +10,6 @@ class Background {
 
 		const preferences: Preferences = await PreferencesRepository.get();
 		const hider = new TwitterHider(preferences);
-
 		hider.init();
 	}
 
