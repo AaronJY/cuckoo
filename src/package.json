@@ -1,8 +1,16 @@
 {
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "cpx": "1.5.0",
     "cssnano": "^4.1.10",
-    "typescript": "^3.8.3",
-    "cpx": "1.5.0"
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "build": "cpx manifest.json ../build/ && parcel build content.ts hider.ts popup.html hider.css --no-source-maps -d ../build/"

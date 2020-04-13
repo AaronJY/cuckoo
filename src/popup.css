@@ -1,6 +1,6 @@
 h1 {
 	font-size: 18px;
-	color: #AAB8C2;
+	color: #fff;
 	margin-bottom: 15px;
 	margin: 0;
 	padding: 0;
@@ -34,6 +34,17 @@ label, #savedChanges span {
 	border: none;
 	color: #fff;
 	padding: 10px 5px;
+	cursor: pointer;
+}
+
+#savedChanges {
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #599b47;
+}
+
+#savedChanges span {
+	color: #fff;
 }
 
 #banner {
