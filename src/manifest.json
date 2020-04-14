@@ -1,7 +1,7 @@
 {
 	"name": "Cuckoo for Twitter",
-	"description": "Hide Twitter like, retweet and reply counts.",
-	"version": "2.1.0",
+	"description": "Hide Twitter like, retweet, follower and reply counts.",
+	"version": "2.1.1",
 	"manifest_version": 2,
 	"content_scripts": [
 		{
