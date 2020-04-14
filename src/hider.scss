@@ -8,16 +8,20 @@ body[data-hidereplies]
   display: none;
 }
 
-body[data-hideretweets]
-  div[data-testid="retweet"]
-  span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
-  display: none;
+body[data-hideretweets] {
+  div[data-testid="retweet"], div[data-testid="unretweet"] {
+    span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
+      display: none;
+    }
+  }
 }
-
-body[data-hidelikes]
-  div[data-testid="like"]
-  span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
-  display: none;
+  
+body[data-hidelikes] {
+  div[data-testid="like"], div[data-testid="unlike"] {
+    span.css-901oao.css-16my406.r-1qd0xha.r-ad9z0x.r-bcqeeo.r-qvutc0 {
+      display: none;
+    }
+  }
 }
 
 /*
